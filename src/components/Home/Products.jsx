@@ -1,13 +1,26 @@
 import React from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 import products from "../../assets/images/products/products.js";
 
+gsap.registerPlugin(useGSAP);
 function Products() {
+  useGSAP(() => {
+    gsap.to(".product-scroll", {
+      x: -100,
+      duration: 5,
+      // yoyo: true,
+      repeat: -1,
+    });
+  }, {});
+
   return (
-    <div className="relative flex gap-10 overflow-x-scroll h-[40vh]">
+    <div className="product-scroll relative flex gap-10 overflow-x-scroll h-[40vh]">
       {Object.entries(products).map(([key, product], index) => (
         <div
           key={index}
-          className="flex-shrink-0 flex flex-col items-center justify-center px-4 py-4"
+          className="flex-shrink-0 flex flex-col items-center justify-center px-8 py-4"
         >
           <img
             src={product}
