@@ -15,7 +15,7 @@ function ReadMore() {
           trigger: readBoxRef.current,
           start: "top 50%",
           end: "bottom 85%",
-          markers: true,
+          // markers: true,
           scrub: true,
         },
       });
